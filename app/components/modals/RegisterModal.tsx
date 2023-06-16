@@ -1,5 +1,5 @@
 "use client";
-//1:35:30
+//23745
 import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
@@ -12,6 +12,7 @@ import Heading from "../Heading";
 import Input from "../inputs/input";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
+import { signIn } from "next-auth/react";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -91,7 +92,7 @@ const RegisterModal = () => {
         outline
         label="Continue with Github"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
       {/* login option */}
       <div
