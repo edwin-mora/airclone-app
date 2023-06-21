@@ -1,16 +1,19 @@
-import "./globals.css";
 import { Nunito } from "next/font/google";
-import Navbar from "./components/navbar/Navbar";
+
+import Navbar from "@/app/components/navbar/Navbar";
+import LoginModal from "@/app/components/modals/LoginModal";
+import RegisterModal from "@/app/components/modals/RegisterModal";
+import RentModal from "@/app/components/modals/RentModal";
+
+import ToasterProvider from "@/app/providers/ToasterProvider";
+
+import "./globals.css";
 import ClientOnly from "./components/ClientOnly";
-import LoginModal from "./components/modals/LoginModal";
-import RegisterModal from "./components/modals/RegisterModal";
-import ToasterProvider from "./providers/ToasterProvider";
 import getCurrentUser from "./actions/getCurrentUser";
-import RentModal from "./components/modals/RentModal";
 
 export const metadata = {
-  title: "Airclone",
-  description: "Airbnb clone",
+  title: "Airbnb",
+  description: "Airbnb Clone",
 };
 
 const font = Nunito({
@@ -29,12 +32,12 @@ export default async function RootLayout({
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
-          <RentModal />
           <LoginModal />
           <RegisterModal />
+          <RentModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
-        {children}
+        <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>
   );

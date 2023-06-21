@@ -1,6 +1,5 @@
 // category box w labels that's used throughout the app
 "use client";
-//25527
 
 import { IconType } from "react-icons";
 import { useRouter, useSearchParams } from "next/navigation";

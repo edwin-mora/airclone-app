@@ -16,6 +16,7 @@ import { categories } from "../navbar/Categories";
 import Heading from "../Heading";
 import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
+import Input from "../inputs/input";
 
 enum STEPS {
   CATEGORY = 0,
@@ -84,6 +85,8 @@ const RentModal = () => {
   const onNext = () => {
     setStep((value) => value + 1);
   };
+
+  // function where user is finally done and create their airclone listing
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     if (step !== STEPS.PRICE) {
@@ -170,7 +173,7 @@ const RentModal = () => {
       </div>
     );
   }
-  // fucntions for users to upload info about the unit they want to rent out
+  // functions for users to upload info about the unit they want to rent out
   if (step === STEPS.INFO) {
     bodyContent = (
       <div className="flex flex-col gap-8">
@@ -208,11 +211,63 @@ const RentModal = () => {
       <div className="flex flex-col gap-8">
         <Heading
           title="Add photos of your place"
-          subtitle="Show potential guests what your place looks like!"
+          subtitle="Show guests what your place looks like!"
         />
         <ImageUpload
           value={imageSrc}
           onChange={(value) => setCustomValue("imageSrc", value)}
+        />
+      </div>
+    );
+  }
+
+  // functions for users to add a description of the palce they want to rent out
+  if (step === STEPS.DESCRIPTION) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="
+        Describe your place, the more the better"
+          subtitle="Write to guests how great your place is!"
+        />
+        <Input
+          id="title"
+          label="Title"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
+        <hr />
+        <Input
+          id="description"
+          label="Description"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
+      </div>
+    );
+  }
+
+  // function so users can set their price for renting it out
+  if (step === STEPS.PRICE) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Set your price"
+          subtitle="How much do you charge per night?"
+        />
+        <Input
+          id="price"
+          label="Price"
+          formatPrice
+          type="number"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
         />
       </div>
     );
