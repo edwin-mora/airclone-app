@@ -5,6 +5,7 @@ import getListings, { IListingParams } from "./actions/getListings";
 
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
+import { useRouter } from "next/navigation";
 
 interface HomeProps {
   searchParams: IListingParams;
