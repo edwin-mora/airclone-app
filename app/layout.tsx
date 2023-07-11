@@ -13,7 +13,7 @@ import getCurrentUser from "./actions/getCurrentUser";
 import SearchModal from "./components/modals/SearchModal";
 
 export const metadata = {
-  title: "Airbnb",
+  title: "Airclone",
   description: "Airbnb Clone",
 };
 
