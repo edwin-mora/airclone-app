@@ -33,7 +33,7 @@ const ListingHead: React.FC<ListingHeadProps> = ({
       />
       <div
         className="w-full
-    h-[60vh] overflow-hidden rounded-xl relative"
+    h-[80vh] overflow-hidden rounded-xl relative shadow-xl dark:shadow-gray-600"
       >
         <Image
           src={imageSrc}
